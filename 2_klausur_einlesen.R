@@ -18,16 +18,36 @@ examsMSB::nops_scan(dir = "scans/")
 totalpoints <- 10
 ml <- keira::get_marks_and_labels(totalpoints)
 
+#
+#
+eval_fun <- examsMSB::exams_eval(partial=TRUE, rule="true")
+eval_fun <- examsMSB::exams_eval(partial=FALSE)
+
+
 # Nun werden die Informationen aus den korrekten und falschen
 # Antworten (RDS-Datei aus Schritt 1) und die ausgelesenen
-# Informationen zusammengeführt
+# Informationen zusammengeführt.
+#
+# Es wird eine Datei namens "nops_eval.csv" erzeugt, die
+# eine Übersicht der Punkte, Gesamtpunkte und Note pro
+# Matrikelnummer enthält.
 
 examsMSB::nops_eval(register=NULL,
-                    solutions="exam/klausur_M14_2023-02-15.rds",
-                    scans="scans_png/nops_scan_20230306115257.zip",
+                    solutions="exam/klausur_M99_2023-02-15.rds",
+                    scans="scans/nops_scan_20230424143625.zip",
                     mark=ml$marks,
                     labels=ml$labels,
-                    eval=eval_funs,
+                    eval=eval_fun,
                     interactive = TRUE)
 
-keira::grade_report(nops_eval_file = "nops_eval.csv", outfolder = "reports")
+#
+# Zuletzt erzeugen wir die annotierten Deckblätter
+# zur manuellen Durchsicht und zur Ablage als Ausdruck
+# im Prüfungsbüro
+#
+# /!\ Achtung, dieser Schritt kann mehrere Minuten dauern
+#
+
+keira::grade_report(nops_eval_file = "nops_eval.csv",
+                    path_to_scans = "scans/nops_scan_20230424143625.zip",
+                    outfolder = "reports")

@@ -34,7 +34,7 @@ eval_fun <- examsMSB::exams_eval(partial=FALSE)
 
 examsMSB::nops_eval(register=NULL,
                     solutions="exam/klausur_M99_2023-02-15.rds",
-                    scans="scans/nops_scan_20230425163513.zip",
+                    scans="scans/nops_scan_20230512141531.zip",
                     mark=ml$marks,
                     labels=ml$labels,
                     eval=eval_fun,
@@ -49,7 +49,7 @@ examsMSB::nops_eval(register=NULL,
 #
 
 keira::grade_report(nops_eval_file = "nops_eval.csv",
-                    path_to_scans = "scans/nops_scan_20230425163513.zip",
-                    outfolder = "reports", debug=TRUE)
+                    path_to_scans = "scans/nops_scan_20230512141531.zip",
+                    outfolder = "reports")
 
 

@@ -8,5 +8,5 @@
 install.packages("devtools")
 
 # (2) dann die aktuellen Pakete von github installieren
-devtools::install_github("brandmaier/keira")
-devtools::install_github("brandmaier/examsMSB")
+devtools::install_github("brandmaier/keira") # Paket: keira
+devtools::install_github("brandmaier/exams") # Paket: examsMSB

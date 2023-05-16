@@ -10,3 +10,13 @@ install.packages("devtools")
 # (2) dann die aktuellen Pakete von github installieren
 devtools::install_github("brandmaier/keira") # Paket: keira
 devtools::install_github("brandmaier/exams") # Paket: examsMSB
+
+# (3)
+# Falls auf dem lokalen Rechner keine LaTeX-Distribution
+# installiert ist (z.B. MikTeX oder TeX Live, siehe auch
+# hier: https://www.latex-project.org/get/), dann kann
+# man eine minimale Installation via dem R-Paket tinytex
+# vornehmen:
+
+install.packages("tinytex")
+tinytex::install_tinytex()

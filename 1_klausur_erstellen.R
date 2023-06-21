@@ -28,12 +28,12 @@ points <- 1
 
 # (3b) Möglichkeit 2: Wir vergeben händisch unterschiedliche Punkte pro
 #        Aufgabe
-points <- c(1,1,2,2,1,1,10)
+#points <- c(1,1,2,2,1,1,10)
 
 # (3c) Möglichkeit 3: Wir vergeben unterschiedliche Punktzahlen
 #       für jeweils single-choice und multi-choice Aufgaben
-points <- keira::extract_points(list.files("items", full.names=TRUE),
-                                schoice=1.5, mchoice=3)
+#points <- keira::extract_points(list.files("items", full.names=TRUE),
+#                                schoice=1.5, mchoice=3)
 
 
 # (4) Wir setzen einen Zufalls-Seed, damit die Verwürfelung der Distraktoren
@@ -67,6 +67,6 @@ keira::generate(files=list.files("items", full.names=TRUE),
                 intro = intro,
                 points = points,
                 date="2023-02-15",
-                logo = "msblogo.png",
+                logo = "./msblogo.png",
                 output_dir = "exam"
                 )

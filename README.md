@@ -13,6 +13,10 @@ Die Klausuren sehen beispielhaft etwa so aus:
 
 ![](https://github.com/brandmaier/keira_workshop/blob/main/scans/KM_C360i23042516330-001.png)
 
+Und so sieht das finale, korrigierte Deckblatt aus
+
+![](https://github.com/brandmaier/keira_workshop/blob/main/reports/012123000654.png)
+
 # Funktionen aus dem `keira`-Paket
 
 TODO

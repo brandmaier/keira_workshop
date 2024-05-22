@@ -52,6 +52,12 @@ examsMSB::nops_eval(register=NULL,
 
 keira::grade_report(nops_eval_file = "nops_eval.csv",
                     path_to_scans = "scans/nops_scan_20230515133656.zip",
-                    outfolder = "reports")
+                    outfolder = "reports",
+                    show_points = TRUE,
+                    show_points_total = TRUE,
+                    show_grade = TRUE,
+                    show_registration = TRUE,
+                    points_total_max = totalpoints,
+                    show_points_total_max = TRUE)
 
 

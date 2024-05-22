@@ -20,3 +20,5 @@ devtools::install_github("brandmaier/exams") # Paket: examsMSB
 
 install.packages("tinytex")
 tinytex::install_tinytex()
+tinytex::tlmgr_install("babel-german") # Das benötigt man für die richtige Silbentrennung
+

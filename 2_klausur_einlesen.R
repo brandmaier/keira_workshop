@@ -18,7 +18,9 @@ examsMSB::nops_scan(dir = "scans/")
 totalpoints <- 30
 ml <- keira::get_marks_and_labels(totalpoints)
 
-#
+# Nun können verschiedene Evaluationsfunktionen genutzt werden
+# um Punkte zu vergeben. Die Option `partial` erlaubt die
+# Vergabe anteiliger Punkte.
 #
 eval_fun <- examsMSB::exams_eval(partial=TRUE, rule="true", negative=FALSE)
 eval_fun <- examsMSB::exams_eval(partial=FALSE)

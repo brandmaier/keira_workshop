@@ -4,8 +4,8 @@
 #
 # author: Andreas M. Brandmaier
 # contact: andreas.brandmaier@medicalschool-berlin.de
-# date: 2023/04
-# version: 1.0
+# date: 2024/05
+# version: 1.0.1
 #
 
 # zunächst laden wir die beiden benötigten R-Pakete
@@ -15,9 +15,13 @@ library(keira)
 
 # (1) Word-Klausur in einzelne Frage-Dateien in LaTeX umwandeln
 #     Die entstehenden Dateien liegen dann im Unterordner 'items'
+#     Diese Datei muss eine Liste mit zwei Ebenen enthalten. Auf
+#     der ersten Ebene befinden sich die Angaben auf der zweiten
+#     Ebene die möglichen Antworten
 keira::converter("MeineErsteKlausur.docx")
 
 # (2) Hinweistext erstellen und nach LaTeX konvertieren
+#     damit Umlaute richtig dargestellt werden
 intro <- "Hinweistext: Für jede Frage mit einer richtigen Antwort erhalten Sie 1,5 Punkte. Für jede Frage mit zwei richtigen Antworten erhalten Sie 3 Punkte. Es zählen nur vollständig richtig beantwortete Fragen. Insgesamt besteht die Klausur aus 42 Fragen (13 Fragen mit einer richtigen Antwort; 29 Fragen mit zwei richtigen Antworten), so dass max. eine Punktzahl von 106,5 erreicht werden kann. "
 intro <- keira::convert_latex_simple(intro)
 
@@ -38,15 +42,19 @@ points <- 1
 
 # (4) Wir setzen einen Zufalls-Seed, damit die Verwürfelung der Distraktoren
 #       reproduzierbar ist
+
+set.seed(3450435)
+
+# (5) Klausur erstellen
 #
 # n:        Anzahl der permutierten Varianten (n=1 für nur eine Version, N=2 für A/B,...)
-# title:    Titel der Klausur - muss Modulbezeichnung enthalten
+# title:    Titel der Klausur - muss Modulbezeichnung, Modulnummer, Dozierende und Kurse enthalten
 # course:   Nur die Modulbezeichnung
 # showpoints: TRUE oder FALSE, sollen bei jedem Item
 #              die erreichbaren Punkte angezeigt werden
-# intro:
-# points:
-# date:     Datum der Klausur
+# intro:    Einleitender Text
+# points:   Erreichbare Punkte für die Items
+# date:     Datum der Klausur im Format YYYY-MM-DD
 #
 #
 # Die Klausuren werden im Unterordner "exam" abgelegt
@@ -57,11 +65,11 @@ points <- 1
 # alle Informationen zu den richtigen&falschen Antworten
 # enthält. Diese Datei wird später bei der Korrektur
 # benötigt und muss unbedingt sicher aufbewahrt werden.
-
-set.seed(3450435)
-keira::generate(files=list.files("items", full.names=TRUE),
+#
+keira::generate(
+  files=list.files("items", full.names=TRUE),
                 n=2,
-                title="M99 Alpine Therapieverfahren",
+                title="M99 Alpine Therapieverfahren - Prof. R. Messner - P WS 99",
                 course = "M99",
                 showpoints = TRUE,
                 intro = intro,
@@ -70,3 +78,5 @@ keira::generate(files=list.files("items", full.names=TRUE),
                 logo = "./msblogo.png",
                 output_dir = "exam"
                 )
+
+

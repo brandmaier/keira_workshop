@@ -17,7 +17,8 @@ library(keira)
 #     Die entstehenden Dateien liegen dann im Unterordner 'items'
 #     Diese Datei muss eine Liste mit zwei Ebenen enthalten. Auf
 #     der ersten Ebene befinden sich die Angaben auf der zweiten
-#     Ebene die möglichen Antworten
+#     Ebene jeweils die möglichen Antworten. Die richtigen Antworten
+#     müssen mit dem Kürzel (x) markiert werden (inkl. Klammern).
 keira::converter("MeineErsteKlausur.docx")
 
 # (2) Hinweistext erstellen und nach LaTeX konvertieren
